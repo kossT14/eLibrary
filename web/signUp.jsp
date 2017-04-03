@@ -27,7 +27,7 @@
     </head>
     <body>        
         <div>            
-            <form action="RegistrationServlet" method="post">                
+            <form action="SignUpServlet" method="post">                
                 <table>
                     <thead>
                         <tr>
@@ -37,15 +37,15 @@
                     <tbody>
                         <tr>
                             <td>Username</td>
-                            <td><input type="text" name="user" value="" /></td>
+                            <td><input type="text" name="uuser" value="" /></td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input type="password" name="pass" value="" /></td>
+                            <td><input type="password" name="upass" value="" /></td>
                         </tr>                    
                         <tr>
-                            <td><input type="submit" value="Submit" /></td>
                             <td><input type="reset" value="Reset" /></td>
+                            <td><input type="submit" value="Submit" /></td>                           
                         </tr>
                         <tr>
                             <td colspan="2">Already registered! <a href="index.jsp">Login Here</a></td>

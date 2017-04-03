@@ -22,7 +22,7 @@ public class UserDAO {
     public static UserBean login(UserBean user) {
 
         //preparing some objects for connection 
-        Statement stm = null;
+        Statement stm;
 
         String username = user.getUsername();
         String password = user.getPassword();
@@ -52,41 +52,69 @@ public class UserDAO {
                 user.setValid(false);
             } //if user exists set the isValid variable to true
             else if (rsHasRows) {
-                System.out.println("Welcome " + username);
+                user.setRole(rs.getString("role"));
+                System.out.println("Welcome " + username + "!");
                 user.setValid(true);
             }
         } catch (SQLException ex) {
             System.out.println("Log In failed: An Exception has occurred! " + ex);
         } //some exception handling
         finally {
+            ConnectionManager.shutdown(con);
+        }
+        return user;
+    }
+
+    public static UserBean registerNewUser(UserBean user) {
+
+        //preparing some objects for connection 
+        Statement stm = null;
+        String username = user.getUsername();
+
+        String searchQuery = "select * from users where username='"
+                + username + "'";
+
+        try {
+            //connect to DB 
+            con = ConnectionManager.getConnection();
+            stm = con.createStatement();
+            rs = stm.executeQuery(searchQuery);
+            boolean rsHasRows = rs.next();
+
+            /* if user does not exist and username field is filled-up
+            set the isValid variable to true*/
+            if ( (!rsHasRows) && ( !("".equals(username)) ) ) {
+                System.out.println("Specified username available!");
+                user.setValid(true);
+            } //if name already exists, set the isValid variable to false
+            else if (rsHasRows) {
+                System.out.println("Specified username already exists! "
+                        + "Please choose a different one!");
+                user.setValid(false);
+            } else{
+                // username field is empty
+                System.out.println("Username field is empty!");
+                user.setValid(false);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        } 
+        finally {
+            ConnectionManager.shutdown(con);
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
                 }
-                rs = null;
             }
-
             if (stm != null) {
                 try {
                     stm.close();
                 } catch (SQLException e) {
+                    System.out.println("Error closing statement!");
                 }
-                stm = null;
-            }
-
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                }
-
-                con = null;
             }
         }
-
         return user;
-
     }
 }
-

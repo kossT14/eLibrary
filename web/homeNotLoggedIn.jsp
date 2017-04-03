@@ -17,7 +17,7 @@
 
             <h3> Login details: </h3>
 
-            <form action="Index" method="post">
+            <form action="LoginServlet" method="post">
                 <table>
                     <tr>
                         <td>Username: </td>

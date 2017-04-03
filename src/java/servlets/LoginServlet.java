@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import beans.ConnectionManager;
 import beans.UserBean;
 import beans.UserDAO;
 import java.io.IOException;
@@ -12,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,17 +33,19 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-
             UserBean user = new UserBean();
             user.setUsername(request.getParameter("un"));
             user.setPassword(request.getParameter("pw"));
 
-            user = (UserBean) UserDAO.login(user);
+            user = UserDAO.login(user);
 
             if (user.isValid()) {
-
-                HttpSession session = request.getSession(true);
-                session.setAttribute("currentSessionUser", user);
+                // save username as actualUser variable
+                request.getSession().setAttribute("actualUser", user);
+                // save its role as actualUserRole
+                request.getSession().setAttribute("actualUserRole", user.getRole());
+                // create a variable to hold the authenticated user
+                request.getSession().setAttribute("validUser", true);
                 if (user.getRole().equalsIgnoreCase("admin")) {
                     // go to admin page if an admin is logged on
                     request.getRequestDispatcher("./adminPage.jsp").forward(request, response);
@@ -52,7 +54,7 @@ public class LoginServlet extends HttpServlet {
                     request.getRequestDispatcher("./userPage.jsp").forward(request, response);
                 }
             } else {
-                response.sendRedirect("index.jsp"); //error page 
+                response.sendRedirect("./index.jsp"); //error page 
             }
         } catch (IOException theException) {
             System.out.println(theException);

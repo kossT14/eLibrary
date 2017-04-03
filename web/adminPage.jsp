@@ -1,5 +1,5 @@
 <%-- 
-    Document   : index
+    Document   : adminPage
     Created on : Mar 18, 2017, 9:13:12 AM
     Author     : koss
 --%>
@@ -89,7 +89,7 @@
             window.location.hash = "Again-No-back-button";//again because google chrome don't insert first hash into history
             window.onhashchange = function () {
                 window.location.hash = "no-back-button";
-            }
+            };
         </script> 
     </head>
     <body>
@@ -98,7 +98,7 @@
             <header>
                 <h1>Electronic Library</h1>                
             </header>
-            <h4><a href="#" class="menu-item">Logout</a></h4>
+            
             <nav>
                 <div class="menu-item alpha">
                     <h4><a id="home" href="#">Home</a></h4>
@@ -152,6 +152,11 @@
                         <li><a id="phone" href="#">Phone</a></li>
                         <li><a id="email" href="#">Email</a></li>
                     </ul>
+                </div>
+
+                <div class="menu-item">
+                    <%session.invalidate();%>
+                    <h4><a href="./index.jsp">Log out</a></h4>
                 </div>
             </nav>
 

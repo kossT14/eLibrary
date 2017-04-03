@@ -102,7 +102,7 @@
 
                 <h3> Login details: </h3>
 
-                <form action="Index" method="post">
+                <form action="LoginServlet" method="post">
                     <table>
                         <tr>
                             <td>Username: </td>
@@ -117,7 +117,7 @@
                             <td><input type="submit" name="authenticationpage_authenticate" value="Login"></td>                            
                         </tr>
                         <tr>
-                            <td colspan="2">Not yet registered! <a href="register.jsp">Register here!</a></td>
+                            <td colspan="2">Not yet registered! <a href="signUp.jsp">Register here!</a></td>
                         </tr>
                     </table>
                 </form>

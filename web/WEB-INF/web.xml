@@ -2,42 +2,25 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <description>Serves index.jsp page</description>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>servlets.Index</servlet-class>
-    </servlet>
-    <servlet>
-        <description>Serves index.jsp page</description>
-        <servlet-name>index</servlet-name>
-        <servlet-class>servlets.Index</servlet-class>
-    </servlet>
-    <servlet>
-        <description>Main servlet serves main JSP of applications.</description>
-        <servlet-name>MainPageServlet</servlet-name>
-        <servlet-class>servlets.MainPageServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegistrationServlet</servlet-name>
-        <servlet-class>servlets.RegistrationServlet</servlet-class>
+        <description>Serves signUp.jsp page</description>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>servlets.SignUpServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>servlets.Logout</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Index</servlet-name>
-        <url-pattern>/Index</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegistrationServlet</servlet-name>
-        <url-pattern>/RegistrationServlet</url-pattern>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/SignUpServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
