@@ -76,7 +76,7 @@ public class SignUpServlet extends HttpServlet {
                     request.setAttribute("subscribed", true);
                 }
                 request.getSession().setAttribute("validUser", false);
-                request.getRequestDispatcher("./register.jsp").forward(request, response);
+                request.getRequestDispatcher("./signUp.jsp").forward(request, response);
             }
 
         } catch (IOException theException) {
