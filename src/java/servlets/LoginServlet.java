@@ -5,7 +5,6 @@
  */
 package servlets;
 
-import beans.ConnectionManager;
 import beans.UserBean;
 import beans.UserDAO;
 import java.io.IOException;
