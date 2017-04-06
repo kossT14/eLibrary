@@ -45,13 +45,6 @@ footer{
     overflow: hidden;
 }
 
-nav {
-    float: left;
-    max-width: 200px;
-    margin: 0;
-    padding: 1em;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -86,20 +79,21 @@ li a:hover:not(.active) {
 
 article {
     margin-left: 170px ;
-    padding: 2em 3em;
+    padding: 0.5em 4em;
     overflow: hidden;
     text-align: justify;
+    font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+    line-height: 1.5;        
 }
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 75%;
 }
 
 th, td {
     text-align: left;
     padding: 8px;
-    border-bottom: 1px solid #ddd;
 }
 /*
 tr:nth-child(even){
@@ -111,10 +105,12 @@ tr:hover{
 }
 
 nav {
+    float: left;
+    max-width: 200px;
+    margin: 0;
+    padding: 1em;
     font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
-    line-height: 1.5;
-    margin: 50px auto; /*for display only*/
-    width: 200px;
+    line-height: 1.5;    
     -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -170,15 +166,6 @@ nav {
     color: #aaa;
 }
 
-/*ul Styles*/
-.menu-item ul {
-    background: #fff;
-    font-size: 13px;
-    line-height: 30px;
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0px;
-}
 
 .menu-item ul a {
     margin-left: 20px;
@@ -201,19 +188,8 @@ nav {
 .menu-item ul {
     background: #fff;
     font-size: 13px;
-    line-height: 30px;
-    height: 0px; /*Collapses the menu*/
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0px;
-}
-
-/*ul Styles*/
-.menu-item ul {
-    background: #fff;
-    font-size: 13px;
     line-height: 25px;
-    height: 0px;
+    height: 0px; /*Collapses the menu*/
     list-style-type: none;
     overflow: hidden;
     padding: 0px;

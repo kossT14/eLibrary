@@ -98,28 +98,24 @@
                 </div>
             </nav>
 
-            <article id="result" >
-
-                <h3> Login details: </h3>
-
+            <article id="article" >
                 <form action="LoginServlet" method="post">
-                    <table>
-                        <tr>
-                            <td>Username: </td>
-                            <td><input type="text" name="un"></td>
-                        </tr> 
-                        <tr>
-                            <td>Password: </td>
-                            <td><input type="password" name="pw"></td>
-                        </tr> 
-                        <tr>
-                            <td><input type="reset" value="Reset" /></td>
-                            <td><input type="submit" name="authenticationpage_authenticate" value="Login"></td>                            
-                        </tr>
-                        <tr>
-                            <td colspan="2">Not yet registered! <a href="signUp.jsp">Register here!</a></td>
-                        </tr>
-                    </table>
+                    <fieldset style="border-spacing: 0 ">
+                        <h3>
+                            Log in details:
+                        </h3>
+                        Username:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Password:<br>
+                        <input type="text" name="un" placeholder="enter username here" required>&emsp;
+
+                        <input type="text" name="pw" placeholder="enter password here" required>
+                        <br><br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                        <input type="reset" value="Reset" />
+                        &emsp;
+                        <input type="submit" name="authenticationpage_authenticate" value="Login">
+                        <br><br>
+                        Not yet registered? <a href="signUp.jsp">Register here!</a><br>
+                    </fieldset>
                 </form>
 
                 <img src="./IMG/devices.png" alt="eBooks" style="padding-left: 4em; width: available; height: available;">

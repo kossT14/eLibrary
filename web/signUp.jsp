@@ -31,17 +31,17 @@
                 <table>
                     <thead>
                         <tr>
-                            <th colspan="2">Enter Information Here</th>
+                            <th colspan="2">Enter sign-up information here</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Username</td>
-                            <td><input type="text" name="uuser" value="" /></td>
+                            <td><input type="text" name="uuser" value="" required=""/></td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input type="password" name="upass" value="" /></td>
+                            <td><input type="password" name="upass" value="" required=""/></td>
                         </tr>                    
                         <tr>
                             <td><input type="reset" value="Reset" /></td>
