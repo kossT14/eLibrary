@@ -107,7 +107,7 @@
                         Username:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Password:<br>
                         <input type="text" name="un" placeholder="enter username here" required>&emsp;
 
-                        <input type="text" name="pw" placeholder="enter password here" required>
+                        <input type="password" name="pw" placeholder="enter password here" required>
                         <br><br>
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
                         <input type="reset" value="Reset" />

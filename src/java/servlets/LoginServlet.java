@@ -5,9 +5,11 @@
  */
 package servlets;
 
-import beans.UserBean;
+import beans.ConnectionManager;
+import beans.User;
 import beans.UserDAO;
 import java.io.IOException;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,9 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            UserBean user = new UserBean();
+            Connection con = ConnectionManager.getConnection();
+            ConnectionManager.createDB(con);
+            User user = new User();
             user.setUsername(request.getParameter("un"));
             user.setPassword(request.getParameter("pw"));
 

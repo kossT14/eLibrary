@@ -5,13 +5,12 @@
  */
 package beans;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author koss
  */
-public class UserBean {
+public class User {
 
     private String username;
     private String password;
@@ -19,19 +18,11 @@ public class UserBean {
     private int userId;
     public boolean valid;
 
-    public UserBean() {
-        this.username = "";
-        this.password = "";
-        this.role = "";
-        this.userId = createID();
+    public User() {
+        super();
+        this.userId = ID.createID();
     }
     
-    static AtomicInteger idCounter = new AtomicInteger();
-
-    private static int createID() {
-        return idCounter.incrementAndGet();
-    }
-
     public String getUsername() {
         return username;
     }

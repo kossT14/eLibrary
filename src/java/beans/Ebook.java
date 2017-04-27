@@ -5,24 +5,34 @@
  */
 package beans;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author koss
  */
-public class EbookBean {
+public class Ebook {
 
-    private final String ISSN;
+    private String ISSN;
     private String title;
     private int noOfPages;
     private double price;
     private float rating;
+    private boolean isValid;
+    private String category;
 
-    public EbookBean(String title, int noOfPages, double price) {
+    /*public Ebook(String title, int noOfPages, double price) {
         this.ISSN = setISSN();
         this.title = title;
         this.noOfPages = noOfPages;
         this.price = price;
         this.rating = 0;
+    }*/
+    
+    public Ebook(){
+        super();
+        this.ISSN = setISSN();
     }
 
     public final String setISSN() {
@@ -65,6 +75,33 @@ public class EbookBean {
         return doubled;
     }
 
+    public void setISSN(String ISSN) {
+        this.ISSN = ISSN;
+    }
+
+    
+    
+    public String getISSN() {
+        return ISSN;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
+    
+    public boolean isIsValid() {
+        return isValid;
+    }
+
+    public void setIsValid(boolean isValid) {
+        this.isValid = isValid;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -95,6 +132,26 @@ public class EbookBean {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public Map<String, String> validate(Ebook eBook) {
+        Map<String, String> errors = new HashMap<>();
+
+        //1 ISSN is required
+        if (!(eBook.getISSN().equals(""))) {
+            eBook.setIsValid(true);
+        } else {
+            eBook.setIsValid(false);
+            errors.put("issn_error", "ISSN is required!");
+        }
+        //2 book name longer than 10 chars
+        if (eBook.getTitle().length() < 2) {
+            eBook.setIsValid(false);
+            errors.put("title_error", "book name longer than 2 chars!");
+        } else {
+            eBook.setIsValid(true);
+        }
+        return errors;
     }
 
 }

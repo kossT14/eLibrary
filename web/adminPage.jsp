@@ -59,22 +59,6 @@
                 $("#availableauthors").click(function () {
                     $('#result').load('availableauthors.jsp');
                 });
-
-                $("#history").click(function () {
-                    $('#result').load('history.html');
-                });
-
-                $("#owners").click(function () {
-                    $('#result').load('owners.html');
-                });
-
-                $("#phone").click(function () {
-                    $('#result').load('phone.html');
-                });
-
-                $("#email").click(function () {
-                    $('#result').load('email.html');
-                });
             });
         </script>        
 
@@ -139,19 +123,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <h4><a href="#">About</a></h4>
-                    <ul>
-                        <li><a id="history" href="#">History</a></li>
-                        <li><a id="owners" href="#">Meet The Owners</a></li>
-                    </ul>
-                </div>
-
-                <div class="menu-item">
-                    <h4><a href="#">Contact</a></h4>
-                    <ul>
-                        <li><a id="phone" href="#">Phone</a></li>
-                        <li><a id="email" href="#">Email</a></li>
-                    </ul>
+                    <h4><a href="./manageAccounts.jsp">Manage accounts</a></h4>                    
                 </div>
 
                 <div class="menu-item">

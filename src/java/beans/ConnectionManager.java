@@ -21,7 +21,7 @@ public class ConnectionManager {
     private static Connection conn = null;
     private static Statement stm = null;
     private static ResultSet rs = null;
-    private static final String[] TABLES = {"EBOOKS", "CATEGORY", "AUTHORS", "USERS", "RATINGS"};
+    private static final String[] TABLES = {"EBOOKS", "CATEGORY", "AUTHORS", "USERS", "RATINGS", "EBOOK_AUT", "USER_ISSN"};
 
     public static Connection getConnection() {
         try {
@@ -101,8 +101,13 @@ public class ConnectionManager {
                             + "AUTHOR_ID INTEGER NOT NULL, "
                             + "NAME VARCHAR(32) NOT NULL, "
                             + "SURNAME VARCHAR(32) NOT NULL, "
-                            + "ISSN VARCHAR(16) NOT NULL, "
                             + "PRIMARY KEY (AUTHOR_ID))");
+                    break;
+                case "EBOOK_AUT":
+                    stm.execute("CREATE TABLE EBOOK_AUT ("
+                            + "ISSN VARCHAR(16) NOT NULL, "
+                            + "AUTHOR_ID INTEGER NOT NULL, "
+                            + "PRIMARY KEY (ISSN))");
                     break;
                 case "USERS":
                     stm.execute("CREATE TABLE USERS ("
@@ -112,13 +117,18 @@ public class ConnectionManager {
                             + "ROLE VARCHAR(16) NOT NULL, "
                             + "PRIMARY KEY (USER_ID))");
                     break;
+                case "USER_ISSN":
+                    stm.execute("CREATE TABLE USER_ISSN ("
+                            + "USER_ID INTEGER NOT NULL, "
+                            + "ISSN VARCHAR(16) NOT NULL, "
+                            + "PRIMARY KEY (USER_ID))");
+                    break;
                 case "RATINGS":
                     stm.execute("CREATE TABLE RATINGS ("
                             + "USER_ID INTEGER NOT NULL, "
-                            + "ISSN VARCHAR(16) NOT NULL, "
                             + "RATING DOUBLE NOT NULL, "
                             + "DESCRIPTION VARCHAR(255) NOT NULL, "
-                            + "PRIMARY KEY (USER_ID, ISSN))");
+                            + "PRIMARY KEY (USER_ID))");
                     break;
                 default:
                     break;

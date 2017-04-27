@@ -6,7 +6,7 @@
 package servlets;
 
 import beans.ConnectionManager;
-import beans.UserBean;
+import beans.User;
 import beans.UserDAO;
 import java.io.IOException;
 import java.sql.Connection;
@@ -42,7 +42,7 @@ public class SignUpServlet extends HttpServlet {
         PreparedStatement pstm = null;
         // read username and password sent from JSP
         try {
-            UserBean newUser = new UserBean();
+            User newUser = new User();
             newUser.setUsername(request.getParameter("uuser"));
             newUser.setPassword(request.getParameter("upass"));
             newUser.setRole("user");

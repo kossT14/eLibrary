@@ -11,9 +11,17 @@
         <servlet-class>servlets.SignUpServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddNewEbookAndAuthorServlet</servlet-name>
+        <servlet-class>servlets.AddNewEbookAndAuthorServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>servlets.Logout</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNewEbookAndAuthorServlet</servlet-name>
+        <url-pattern>/AddNewEbookAndAuthorServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>

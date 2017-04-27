@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Available eBooks</title>
     </head>
     <body>
         <div style="overflow-x:auto;">
@@ -24,9 +24,10 @@
                                user="kossT"  password="1411"/>
 
             <sql:query dataSource="${snapshot}" var="result">
-                SELECT * FROM AUTHORS INNER JOIN EBOOKS
-                ON AUTHORS.ISBN = EBOOKS.ISBN INNER JOIN 
-                CATEGORY ON EBOOKS.CATEG_ID = CATEGORY.CATEG_ID
+                SELECT * FROM AUTHORS INNER JOIN EBOOK_AUT
+                ON AUTHORS.AUTHOR_ID = EBOOK_AUT.AUTHOR_ID INNER JOIN 
+                EBOOKS ON EBOOK_AUT.ISSN = EBOOKS.ISSN
+                INNER JOIN CATEGORY ON EBOOKS.CATEGORY = CATEGORY.NAME
             </sql:query>
             
 
@@ -34,7 +35,7 @@
             <br>
             <table>
                 <tr>
-                    <th>ISBN</th>
+                    <th>ISSN</th>
                     <th>Category</th>
                     <th>Title</th>
                     <th>Number of pages</th>
@@ -45,10 +46,10 @@
                 </tr>
                 <c:forEach var="row" items="${result.rows}">
                     <tr>
-                        <td><c:out value="${row.ISBN}"/></td>
-                        <td><c:out value="${row.CATEG_NAME}"/></td>
+                        <td><c:out value="${row.ISSN}"/></td>
+                        <td><c:out value="${row.CATEGORY}"/></td>
                         <td><c:out value="${row.TITLE}"/></td>
-                        <td><c:out value="${row.NO_OF_PAGES}"/></td>
+                        <td><c:out value="${row.NUMBER_OF_PAGES}"/></td>
                         <td><c:out value="${row.NAME}"/></td>
                         <td><c:out value="${row.SURNAME}"/></td>
                         <td><c:out value="${row.PRICE}"/></td>

@@ -19,7 +19,7 @@ public class UserDAO {
     static Connection con = null;
     static ResultSet rs = null;
 
-    public static UserBean login(UserBean user) {
+    public static User login(User user) {
 
         //preparing some objects for connection 
         Statement stm;
@@ -65,7 +65,7 @@ public class UserDAO {
         return user;
     }
 
-    public static UserBean registerNewUser(UserBean user) {
+    public static User registerNewUser(User user) {
 
         //preparing some objects for connection 
         Statement stm = null;
